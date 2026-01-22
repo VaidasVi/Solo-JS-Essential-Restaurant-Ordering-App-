@@ -1,3 +1,199 @@
+html,
 body {
-    margin: 0;
-} 
+	margin: 0;
+	font-family: "Smythe", cursive;
+}
+
+section {
+	display: flex;
+	justify-content: center;
+}
+
+header {
+	background: #000000;
+	display: flex;
+	justify-content: center;
+}
+
+h2 {
+	font-size: 39px;
+}
+
+h4 {
+	font-size: 22, 5px;
+}
+
+h2,
+h4 {
+	margin: 0;
+	padding-left: 40px;
+}
+
+p {
+	margin: 0;
+}
+
+/*Header Section*/
+
+.header-container {
+	height: 167px;
+	width: 100%;
+	max-width: 600px;
+	display: flex;
+	align-items: center;
+}
+
+#header-img {
+	background-image: url(./images/Burger\ in\ black.png);
+	background-size: cover;
+	background-position: right;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+}
+
+#header-text {
+	color: #ffffff;
+	width: 100%;
+	margin-left: 20px;
+}
+
+/* Item List */
+
+.container {
+	width: 100%;
+	max-width: 500px;
+	height: 140px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 25px 0;
+	border-bottom: 1px solid #d2d2d2;
+}
+
+.description {
+	width: 100%;
+}
+
+.emoji {
+	padding: 0 20px 0 0;
+	margin: 0;
+	float: left;
+	font-size: 78.72px;
+}
+
+.name {
+	font-size: 28px;
+	color: #000000;
+}
+
+.ingredients {
+	font-size: 16px;
+	color: #8b8b8b;
+	padding: 10px 0;
+}
+
+.price {
+	font-size: 20px;
+	color: #000000;
+}
+
+#add-item-btn {
+	font-family: "Inter", sans-serif;
+	font-weight: 200;
+	color: #3c3c3c;
+	background: #ffffff;
+	border: 1.5px solid #dedede;
+	border-radius: 50%;
+	font-size: 32px;
+	width: 50px;
+	height: 50px;
+}
+
+#order-header {
+	max-width: 500px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.order-container {
+	padding-top: 30px;
+}
+
+#order-header p {
+	text-align: center;
+	font-size: 28px;
+	padding-bottom: 40px;
+}
+
+.order-items {
+	margin: 0 auto;
+	max-width: 500px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 20px;
+	border-bottom: 2px solid #393333;
+	align-items: center;
+}
+
+.items-container {
+	width: 100%;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	font-size: 28px;
+}
+
+#order-remove-btn {
+	padding-left: 10px;
+	font-size: 12px;
+	color: #bbbbbb;
+}
+
+#order-price {
+	padding-right: 5px;
+	font-size: 20px;
+}
+
+.total-price {
+	margin: 0 auto;
+	max-width: 500px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 28px;
+	color: #0e0e0e;
+	padding-top: 15px;
+}
+
+#total-price {
+	font-size: 20px;
+	padding-right: 5px;
+}
+
+.order-btn-container {
+	margin: 0 auto;
+	max-width: 500px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+#complete-order-btn {
+	width: 100%;
+	color: #ffffff;
+	background: #16db99;
+	height: 60px;
+	font-family: Verdana, sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+	margin: 25px 0;
+	border: none;
+	border-radius: 3px;
+}
+
+.none {
+	display: none;
+}

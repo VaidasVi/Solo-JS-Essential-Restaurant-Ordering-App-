@@ -1,8 +1,48 @@
 <html>
 	<head>
+		<meta charset="UTF-8" />
+		<title>Restaurant Ordering App</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Smythe&family=Inter:wght@200&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="index.css" />
 	</head>
 	<body>
+		<header>
+			<div class="header-container">
+				<div id="header-text">
+					<h2>Balck River Diner</h2>
+					<h4>The best burgers and pizzas in town.</h4>
+				</div>
+				<div id="header-img"></div>
+			</div>
+		</header>
+		<main>
+			<div class="item-list-container"></div>
+
+			<div class="order-container">
+				<div id="order-header">
+					<p>Your order</p>
+				</div>
+				<div class="order-items">
+					<div class="items-container">
+						<p id="order-name">Pizza</p>
+						<p id="order-remove-btn">remove</p>
+					</div>
+					<p id="order-price">$14</p>
+				</div>
+				<div class="total-price">
+					<p>Total price:</p>
+					<p id="total-price">$26</p>
+				</div>
+				<div class="order-btn-container">
+					<button id="complete-order-btn">Complete order</button>
+				</div>
+			</div>
+		</main>
 		<script src="index.js" type="module"></script>
 	</body>
 </html>
