@@ -37,7 +37,6 @@ const renderItems = () => {
 
 	document.querySelectorAll("#order-remove-btn").forEach((button) => {
 		button.addEventListener("click", () => {
-			console.log(cart);
 			removeItem(button.dataset.cartItemId, cart);
 		});
 	});
