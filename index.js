@@ -4,6 +4,8 @@ let itemListContainer = document.querySelector(".item-list-container");
 let orderContainer = document.querySelector(".order-container");
 let orderItems = document.querySelector(".order-items");
 let totalPrice = document.querySelector("#total-price");
+let msgContainer = document.querySelector(".msg-container");
+const modal = document.getElementById("modal");
 
 const cart = new Cart();
 
@@ -41,6 +43,39 @@ const renderItems = () => {
 		});
 	});
 
+	document
+		.querySelector("#complete-order-btn")
+		.addEventListener("click", () => {
+			modal.style.display = "inline";
+
+			document.querySelectorAll("#add-item-btn").forEach((button) => {
+				button.disabled = true;
+			});
+
+			document.querySelectorAll("#order-remove-btn").forEach((button) => {
+				button.classList.add("disabled");
+			});
+
+			document.querySelector("#complete-order-btn").disabled = true;
+		});
+
+	document.querySelector("#payment-form").addEventListener("submit", (e) => {
+		e.preventDefault();
+
+		const formData = new FormData(e.target);
+		const fullName = formData.get("fullName");
+		const card = formData.get("card");
+		const cvv = formData.get("cvv");
+
+		// Process payment
+		completeOrder(fullName, card, cvv);
+
+		// Clear form and close modal
+		e.target.reset();
+		closeModal(cart);
+		showMessage(fullName);
+	});
+
 	function addItem(itemId) {
 		menuArray.forEach((item) => {
 			if (item.id.toString() === itemId) {
@@ -50,14 +85,12 @@ const renderItems = () => {
 
 		renderOrders(cart);
 		calculateCartTotal(cart);
-		renderItems();
 	}
 
 	function removeItem(id, cart) {
 		cart.removeItem(Number(id));
 		renderOrders(cart);
 		calculateCartTotal(cart);
-		renderItems();
 	}
 
 	function renderOrders(cart) {
@@ -89,6 +122,44 @@ const renderItems = () => {
 
 	function calculateCartTotal(cart) {
 		totalPrice.textContent = `$${cart.calculateTotal()}`;
+	}
+
+	function completeOrder(fullName, cardNumber, cvv) {
+		console.log(`Name: ${fullName}, Card Number: ${cardNumber}, CVV: ${cvv}`);
+	}
+
+	function closeModal(cart) {
+		modal.style.display = "none";
+
+		document.querySelectorAll("#add-item-btn").forEach((button) => {
+			button.disabled = false;
+		});
+
+		document.querySelectorAll("#order-remove-btn").forEach((button) => {
+			button.classList.remove("disabled");
+		});
+
+		document.querySelector("#complete-order-btn").disabled = false;
+
+		cart.clear();
+		renderOrders(cart);
+	}
+
+	function showMessage(name) {
+		const main = document.querySelector("main");
+
+		// Create message element
+		const msgDiv = document.createElement("div");
+		msgDiv.className = "msg-container";
+		msgDiv.innerHTML = `<p>Thanks, ${name}! Your order is on its way!</p>`;
+
+		// Add to main
+		main.append(msgDiv);
+
+		// Remove after 5 seconds
+		setTimeout(() => {
+			msgDiv.remove();
+		}, 5000);
 	}
 };
 
